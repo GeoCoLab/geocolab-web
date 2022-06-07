@@ -4,7 +4,7 @@
     "prod": "npm run build && npm run server:prod",
     "build": "vite build && vite build --ssr",
     "server": "node ./server",
-    "server:prod": "cross-env NODE_ENV=production node ./server"
+    "server:prod": "cross-env NODE_ENV=production ts-node server"
   },
   "dependencies": {
     "@codemirror/lang-json": "^0.20.0",

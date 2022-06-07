@@ -1,0 +1,1 @@
+import{_ as n,o as a,c as t,F as c,a as e}from"./renderer/_default.page.client.ts.fcb57db6.js";const o={},s=e("h2",null,"Admin",-1),r=e("p",null,"#TODO",-1);function _(l,d){return a(),t(c,null,[s,r],64)}var f=n(o,[["render",_]]);export{f as default};

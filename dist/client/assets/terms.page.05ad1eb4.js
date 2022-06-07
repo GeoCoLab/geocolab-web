@@ -1,0 +1,1 @@
+import{_ as s,o as t,c as a,F as o,a as e}from"./renderer/_default.page.client.ts.fcb57db6.js";const c={},n=e("h2",{class:"page-title"},"Terms & Conditions",-1),r=e("p",null,"#TODO",-1);function _(l,i){return t(),a(o,null,[n,r],64)}var m=s(c,[["render",_]]);export{m as default};

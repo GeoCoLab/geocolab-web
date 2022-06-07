@@ -1,0 +1,1 @@
+import{_ as a,o as s,c as t,F as c,a as e}from"./renderer/_default.page.client.ts.fcb57db6.js";const o={},n=e("h2",{class:"page-title"},"My orgs",-1),r=e("p",null,"#TODO",-1);function _(l,d){return s(),t(c,null,[n,r],64)}var p=a(o,[["render",_]]);export{p as default};

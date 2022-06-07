@@ -1,0 +1,1 @@
+import{_ as c,o,c as t,F as a,a as e}from"./renderer/_default.page.client.ts.fcb57db6.js";const s={},n=e("h2",{class:"page-title"},"Code of Conduct",-1),r=e("p",null,"#TODO",-1);function _(l,d){return o(),t(a,null,[n,r],64)}var p=c(s,[["render",_]]);export{p as default};
