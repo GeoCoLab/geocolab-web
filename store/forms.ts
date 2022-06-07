@@ -1,4 +1,4 @@
-import { defineStore } from 'pinia/dist/pinia';
+import { defineStore } from 'pinia';
 import { api, post } from '../utils/api';
 
 export const useFormStore = defineStore('forms', {

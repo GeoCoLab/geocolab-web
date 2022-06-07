@@ -4,7 +4,7 @@ import type { Component, PageContext } from '../types';
 import { setPageContext } from '../utils/usePageContext';
 
 // extensions
-import { createPinia, setActivePinia } from 'pinia/dist/pinia';
+import { createPinia, setActivePinia } from 'pinia';
 import { useEnumStore } from '../store/enums';
 import { useFormStore } from '../store/forms';
 import { useAuthStore } from '../store/auth';

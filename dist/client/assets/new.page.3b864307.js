@@ -1,1 +1,0 @@
-import{_ as a,o as t,c,F as s,a as e}from"./renderer/_default.page.client.ts.fcb57db6.js";const n={},o=e("h2",{class:"page-title"},"New facility",-1),r=e("p",null,"#TODO",-1);function _(l,i){return t(),c(s,null,[o,r],64)}var p=a(n,[["render",_]]);export{p as default};

@@ -1,4 +1,4 @@
-import { defineStore } from 'pinia/dist/pinia';
+import { defineStore } from 'pinia';
 import { api } from '../utils/api';
 import moment from 'moment';
 import { canUpdate, expired, sortObjectValues } from '../utils/misc';

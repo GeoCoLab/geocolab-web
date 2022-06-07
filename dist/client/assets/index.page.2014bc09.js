@@ -1,1 +1,0 @@
-import{_ as a,o as s,c as t,F as c,a as e}from"./renderer/_default.page.client.ts.fcb57db6.js";const r={},n=e("h2",{class:"page-title"},"Researcher",-1),o=e("p",null,"#TODO",-1);function _(l,d){return s(),t(c,null,[n,o],64)}var p=a(r,[["render",_]]);export{p as default};
