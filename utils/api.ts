@@ -20,12 +20,6 @@ export const api = axios.create({
     xsrfHeaderName: 'X-CSRF-TOKEN'
 });
 
-export async function post(endpoint: string, formData: Object) {
-    // I'm not sure if this is required and/or even does anything anymore, but I'm gonna leave it for now
-    return api.get('/csrf')
-        .then(() => api.post(endpoint, formData));
-}
-
 api.interceptors.response.use(
     function (response) {
         return response;

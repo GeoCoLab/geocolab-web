@@ -1,5 +1,5 @@
 import { defineStore } from 'pinia';
-import { api, post } from '../utils/api';
+import { api } from '../utils/api';
 
 export const useFormStore = defineStore('forms', {
     state: () => ({
@@ -20,7 +20,7 @@ export const useFormStore = defineStore('forms', {
             });
         },
         async submitForm(formName: string, formData: Object) {
-            return post(`/forms/${ formName }`, {
+            return api.post(`/forms/${ formName }`, {
                 'data': formData
             });
         },

@@ -23,7 +23,7 @@
 <script setup>
 import { json } from '@codemirror/lang-json';
 import { Codemirror } from 'vue-codemirror';
-import { post } from '../utils/api';
+import { api } from '../utils/api';
 import { ref } from 'vue';
 import prettier from 'prettier';
 import parserJson from 'prettier/parser-babel';
@@ -47,7 +47,7 @@ function reformat() {
 }
 
 function saveSchema() {
-  post('/forms/save-fields', {
+  api.post('/forms/save-fields', {
     form: props.formName,
     fields: props.modelValue
   }).then(r => {

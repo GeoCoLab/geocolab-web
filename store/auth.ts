@@ -1,5 +1,5 @@
 import { defineStore } from 'pinia';
-import { api, post } from '../utils/api';
+import { api } from '../utils/api';
 import type { Ref } from 'vue';
 import { User } from '../types';
 import { navigate } from 'vite-plugin-ssr/client/router';
@@ -30,7 +30,7 @@ export const useAuthStore = defineStore('auth', {
     },
     actions: {
         async login(loginForm: Ref) {
-            return post('/login', loginForm.value).then(r => {
+            return api.post('/login', loginForm.value).then(r => {
                 this.userData = r.data;
                 return r;
             }).catch(e => {
@@ -51,7 +51,7 @@ export const useAuthStore = defineStore('auth', {
             });
         },
         async register(registerForm: Ref) {
-            return post('/register', registerForm.value).then(r => {
+            return api.post('/register', registerForm.value).then(r => {
                 this.userData = r.data;
                 return r;
             }).catch(e => {
