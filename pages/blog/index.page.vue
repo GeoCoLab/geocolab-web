@@ -1,7 +1,7 @@
 <template>
   <h2 class="page-title">Blog</h2>
   <div v-for="p in summaries" class="blog-summary">
-    <h3><a :href="`/blog/${p.slug}`">{{ p.title }}</a></h3>
+    <h3><a :href="`/blog/post/${p.slug}`">{{ p.title }}</a></h3>
     <small>{{ p.posted }}</small>
     <p>{{ p.summary }}</p>
   </div>

@@ -33,6 +33,12 @@ export type PageContext = {
     documentProps?: {
         title: string
     }
+    user: User
+}
+
+export type PageContextWrapper = {
+    url: string
+    pageContext: PageContext
 }
 
 export type User = {

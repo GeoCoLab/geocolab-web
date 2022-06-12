@@ -1,6 +1,9 @@
 import express from 'express';
 import { createPageRenderer } from 'vite-plugin-ssr';
 import * as vite from 'vite';
+import { api } from '../utils/api';
+import { emptyUser } from '../store/auth';
+import cookieParser from 'cookie-parser';
 
 const isProduction = process.env.NODE_ENV === 'production';
 const root = `${ __dirname }/..`;
@@ -9,6 +12,7 @@ startServer();
 
 async function startServer() {
     const app = express();
+    app.use(cookieParser());
 
     let viteDevServer;
     if (isProduction) {
@@ -22,10 +26,18 @@ async function startServer() {
     }
 
     const renderPage = createPageRenderer({viteDevServer, isProduction, root});
+
     app.get('*', async (req, res, next) => {
         const url = req.originalUrl;
+        const user = await api.get('/user', {
+            headers: {'Cookie': req.headers.cookie || ''},
+            withCredentials: true
+        }).then(r => r.data).catch(e => {
+            return emptyUser;
+        });
         const pageContextInit = {
             url,
+            user
         };
         const pageContext = await renderPage(pageContextInit);
         const {httpResponse} = pageContext;
@@ -38,6 +50,7 @@ async function startServer() {
 
     const port = process.env.PORT || 3000;
     const host = '0.0.0.0';
+    // @ts-ignore
     app.listen(port, host);
     console.log(`Server running at http://${ host }:${ port }`);
 }

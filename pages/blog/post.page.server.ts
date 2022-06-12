@@ -1,4 +1,4 @@
-import { api } from '../../../utils/api';
+import { api } from '../../utils/api';
 import moment from 'moment';
 import type { PageContextBuiltIn } from 'vite-plugin-ssr';
 

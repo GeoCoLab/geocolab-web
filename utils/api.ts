@@ -1,5 +1,5 @@
 import axios from 'axios';
-
+import cookie from 'cookie';
 
 let API_HOST;
 try {
@@ -26,9 +26,12 @@ api.interceptors.response.use(
     },
     async function (error) {
         let originalRequest = error.config;
-        if (error.response.data.msg === 'Token has expired') {
+        if (error.response.data.errors.includes('Token has expired')) {
             try {
-                await api.post('/refresh', {}, {xsrfCookieName: 'csrf_refresh_token'});
+                let cookieString = originalRequest.headers['Cookie']
+                let cookies = cookie.parse(cookieString)
+                let response = await api.post('/refresh', {}, {headers: {'Cookie': cookieString, 'X-CSRF-TOKEN': cookies['csrf_refresh_token']}});
+                originalRequest.headers['Cookie'] = response.headers['set-cookie']
                 return api(originalRequest);
             } catch (e) {
                 // they're just gonna have to log in again

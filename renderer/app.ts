@@ -18,18 +18,6 @@ import CurrencySelect from '../components/CurrencySelect.vue';
 const pinia = createPinia();
 setActivePinia(pinia);
 
-// init enums
-const enumStore = useEnumStore();
-enumStore.init();
-
-// init forms
-const formStore = useFormStore();
-formStore.init();
-
-// try and load user
-const authStore = useAuthStore();
-authStore.loadUser();
-
 export { createApp };
 
 function createApp(pageContext: PageContext) {

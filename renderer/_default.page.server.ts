@@ -5,7 +5,7 @@ import { createApp } from './app';
 import type { PageContext } from '../types';
 import iconUrl from '../assets/apple-touch-icon.png';
 
-export const passToClient = ['pageProps', 'documentProps'];
+export const passToClient = ['pageProps', 'documentProps', 'user'];
 
 export async function render(pageContext: PageContextBuiltIn & PageContext) {
     const app = createApp(pageContext);

@@ -18,12 +18,12 @@
     <!-- link block 2 -->
     <div id="nav-auth">
       <NavBlock direction="row">
-        <template v-if="auth.loggedIn">
+        <template v-if="pageContext.user.id">
           <NavItem path="/user/account">
-            <span class="<md:hidden">Hi, {{ auth.userData.given_name }}</span>
-            <img :src="auth.userData.gravatar + '&s=30'" class="inline md:ml-4 rounded-full border-2 border-secondary-light">
+            <span class="<md:hidden">Hi, {{ pageContext.user.given_name }}</span>
+            <img :src="pageContext.user.gravatar + '&s=30'" class="inline md:ml-4 rounded-full border-2 border-secondary-light">
           </NavItem>
-          <NavItem path="#" label="Logout" @click="auth.logout">
+          <NavItem path="/#" label="Logout" @click="auth.logout">
           </NavItem>
         </template>
         <template v-else>
@@ -44,8 +44,10 @@ import { breakpointsTailwind, useBreakpoints } from '@vueuse/core';
 import { computed, ref } from 'vue';
 import Dropdown from './nav/Dropdown.vue';
 import { useAuthStore } from '../store/auth';
+import {usePageContext} from '../utils/usePageContext';
 
 const auth = useAuthStore();
+const pageContext = usePageContext();
 
 const breakpoints = useBreakpoints(breakpointsTailwind);
 const isLarge = ref(breakpoints.greater('lg'));

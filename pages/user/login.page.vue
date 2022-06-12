@@ -11,8 +11,11 @@
 
 <script setup>
 import { ref } from 'vue';
-import { navigate } from 'vite-plugin-ssr/client/router';
 import { useAuthStore } from '../../store/auth';
+import { usePageContext } from '../../utils/usePageContext';
+import { navigate } from 'vite-plugin-ssr/client/router';
+
+const pageContext = usePageContext();
 
 const auth = useAuthStore();
 
@@ -25,9 +28,13 @@ const submitHandler = async () => {
           errors.value = r.data.errors;
         } else {
           if (auth.userData.todo.includes('edi') || auth.userData.todo.includes('edi_extra')) {
-            navigate('/researcher/register');
+            window.location.pathname = '/researcher/register';
+          } else if (pageContext.pageProps.next) {
+            navigate(pageContext.pageProps.next).then(() => {
+              window.location.search = '';
+            })
           } else {
-            navigate('/');
+            window.location.pathname = '/';
           }
         }
       });

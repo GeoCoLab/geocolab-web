@@ -1,14 +1,8 @@
-import moment, { Moment } from 'moment';
-import {StringDict} from '../types';
+import moment from 'moment';
+import { StringDict } from '../types';
 
-const expiredMinutes = 5;
-
-export function expired() {
-    return moment(moment.now()).subtract(expiredMinutes + 1, 'minutes');
-}
-
-export function canUpdate(prev: Moment) {
-    return moment.duration(moment().diff(prev)).asMinutes() >= expiredMinutes;
+export function hasExpired(date: string) {
+    return moment(date).isAfter(moment.now());
 }
 
 export function sortObjectValues(obj: Object) {
@@ -24,4 +18,15 @@ export function sortObjectValues(obj: Object) {
             result[x[0]] = x[1];
             return result;
         }, {});
+}
+
+export function getCookies() {
+    let decodedCookies = decodeURIComponent(document.cookie);
+    let cookieArray = decodedCookies.split(';').filter(c => c !== '');
+    let cookies: StringDict = {};
+    cookieArray.forEach(c => {
+        let [cookiename, ...cookievalue] = c.split('=');
+        cookies[cookiename] = cookievalue.join('=');
+    });
+    return cookies;
 }

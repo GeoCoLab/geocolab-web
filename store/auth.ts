@@ -4,7 +4,7 @@ import type { Ref } from 'vue';
 import { User } from '../types';
 import { navigate } from 'vite-plugin-ssr/client/router';
 
-const emptyUser: User = {
+export const emptyUser: User = {
     country: null,
     created: null,
     email: null,
@@ -40,7 +40,7 @@ export const useAuthStore = defineStore('auth', {
         async logout() {
             return api.post('/logout').then(r => {
                 this.userData = {...emptyUser};
-                navigate('/');
+                window.location.reload();
             });
         },
         async loadUser() {
