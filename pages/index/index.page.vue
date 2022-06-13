@@ -3,6 +3,7 @@
 </template>
 
 <script setup>
+import '../../assets/apple-touch-icon.png';
 </script>
 
 <style lang="scss">
