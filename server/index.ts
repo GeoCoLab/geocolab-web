@@ -33,7 +33,12 @@ async function startServer() {
             headers: {'Cookie': req.headers.cookie || ''},
             withCredentials: true,
             timeout: 2000
-        }).then(r => r.data).catch(e => {
+        }).then(r => {
+            if (!r.data) {
+                console.error(r);
+            }
+            return r.data
+        }).catch(e => {
             console.error(e);
             return emptyUser;
         });
