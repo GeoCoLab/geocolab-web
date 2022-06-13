@@ -5,7 +5,7 @@ let API_HOST;
 try {
     API_HOST = __API_HOST__;
 } catch (e) {
-    API_HOST = 'http://10.0.12.12';
+    API_HOST = '';
 }
 
 const BASE_URL = API_HOST + '/api';
@@ -26,8 +26,7 @@ api.interceptors.response.use(
     },
     async function (error) {
         let originalRequest = error.config;
-        console.error(error);
-        if (error.response.data.errors.includes('access token has expired')) {
+        if (error.response.data.errors && error.response.data.errors.includes('access token has expired')) {
             try {
                 let cookieString = originalRequest.headers['Cookie']
                 let cookies = cookie.parse(cookieString)

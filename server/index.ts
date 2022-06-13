@@ -32,13 +32,9 @@ async function startServer() {
         const user = await api.get('/user', {
             headers: {'Cookie': req.headers.cookie || ''},
             withCredentials: true,
-            timeout: 2000
-        }).then(r => {
-            if (!r.data) {
-                console.error(r);
-            }
-            return r.data
-        }).catch(e => {
+            timeout: 2000,
+            baseURL: process.env.API_HOST
+        }).then(r => r.data).catch(e => {
             console.error(e);
             return emptyUser;
         });
