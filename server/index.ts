@@ -31,8 +31,10 @@ async function startServer() {
         const url = req.originalUrl;
         const user = await api.get('/user', {
             headers: {'Cookie': req.headers.cookie || ''},
-            withCredentials: true
+            withCredentials: true,
+            timeout: 2000
         }).then(r => r.data).catch(e => {
+            console.error(e);
             return emptyUser;
         });
         const pageContextInit = {
