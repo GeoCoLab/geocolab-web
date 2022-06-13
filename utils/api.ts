@@ -26,9 +26,7 @@ api.interceptors.response.use(
     },
     async function (error) {
         let originalRequest = error.config;
-        if (!error.response.data) {
-            console.error(error.response);
-        }
+        console.error(error.response);
         if (error.response.data.errors.includes('access token has expired')) {
             try {
                 let cookieString = originalRequest.headers['Cookie']
