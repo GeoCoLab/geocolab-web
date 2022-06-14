@@ -20,8 +20,9 @@
       <div class="form-row-inputs">
         <FormKit type="submit" @click="registerManager">Register as manager</FormKit>
         <FormKit type="submit" @click="registerResearcher">Register as researcher</FormKit>
+        <FormKit type="submit" @click="registerBasic">Choose later</FormKit>
       </div>
-      <help>If you're not sure, register as a researcher.</help>
+      <help>If you're not sure, select "Choose later".</help>
     </div>
   </FormKit>
 
@@ -61,6 +62,7 @@ async function registerResearcher() {
   formData.value['role'] = 'researcher';
   submitHandler().then(success => {
     if (success) {
+      // force reload
       window.location.pathname = '/researcher/register';
     }
   });
@@ -70,7 +72,18 @@ async function registerManager() {
   formData.value['role'] = 'manager';
   submitHandler().then(success => {
     if (success) {
+      // force reload
       window.location.pathname = '/manager/register';
+    }
+  });
+}
+
+async function registerBasic() {
+  formData.value['role'] = 'basic';
+  submitHandler().then(success => {
+    if (success) {
+      // force reload
+      window.location.pathname = '/user/account';
     }
   });
 }
