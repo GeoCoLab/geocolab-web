@@ -61,7 +61,7 @@ async function registerResearcher() {
   formData.value['role'] = 'researcher';
   submitHandler().then(success => {
     if (success) {
-      navigate('/researcher/register');
+      window.location.pathname = '/researcher/register';
     }
   });
 }
@@ -70,7 +70,7 @@ async function registerManager() {
   formData.value['role'] = 'manager';
   submitHandler().then(success => {
     if (success) {
-      navigate('/manager/register');
+      window.location.pathname = '/manager/register';
     }
   });
 }

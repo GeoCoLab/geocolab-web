@@ -27,7 +27,7 @@ const submitHandler = async () => {
         if (r.status >= 400) {
           errors.value = r.data.errors;
         } else {
-          if (auth.userData.todo.includes('edi') || auth.userData.todo.includes('edi_extra')) {
+          if (r.data.todo.includes('edi') || r.data.todo.includes('edi_extra')) {
             window.location.pathname = '/researcher/register';
           } else if (pageContext.pageProps.next) {
             navigate(pageContext.pageProps.next).then(() => {

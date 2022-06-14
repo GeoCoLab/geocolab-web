@@ -135,10 +135,10 @@ const hiddenRoutes = [
 ];
 
 function canAccess(roles) {
-  if (auth.userData.role === 'admin') {
+  if (pageContext.user.role === 'admin') {
     return true;
   } else {
-    return roles.includes(auth.userData.role);
+    return roles.includes(pageContext.user.role);
   }
 }
 

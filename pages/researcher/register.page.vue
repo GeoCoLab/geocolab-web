@@ -7,7 +7,7 @@
      Further details on how this data is collected, stored, used and shared is provided in the GeoCoLab terms and
      conditions.</p>
   <p v-if="(!ediTodo) && (!ediExtraTodo)" class="text-red-500 font-bold text-xl text-center">
-    <template v-if="auth.userData.role === 'researcher'">
+    <template v-if="pageContext.user.role === 'researcher'">
       You have already completed this step.
     </template>
     <template v-else>
@@ -35,9 +35,9 @@
 import { computed, ref } from 'vue';
 import { navigate } from 'vite-plugin-ssr/client/router';
 import { useFormStore } from '../../store/forms';
-import { useAuthStore } from '../../store/auth';
+import { usePageContext } from '../../utils/usePageContext';
 
-const auth = useAuthStore();
+const pageContext = usePageContext();
 const forms = useFormStore();
 let errorsEdi = ref([]);
 const formDataEdi = ref({});
@@ -50,7 +50,8 @@ const submitEdi = async () => {
          if (r.status >= 400) {
            errorsEdi.value = r.data.errors;
          } else {
-           auth.loadUser();
+           // if the user is changed, we need to reload
+           window.location.reload()
          }
        });
 };
@@ -61,19 +62,17 @@ const submitExtra = async () => {
          if (r.status >= 400) {
            errorsExtra.value = r.data.errors;
          } else {
-           navigate('/');
+           // user is changed, so navigate like this to force a reload
+           window.location.pathname = '/';
          }
        });
 };
 
 const ediTodo = computed(() => {
-  return auth.userData.todo.includes('edi');
+  return pageContext.user.todo.includes('edi');
 });
 
 const ediExtraTodo = computed(() => {
-  return auth.userData.todo.includes('edi_extra');
+  return pageContext.user.todo.includes('edi_extra');
 });
 </script>
-
-<style lang="scss">
-</style>

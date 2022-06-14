@@ -5,9 +5,6 @@ import { setPageContext } from '../utils/usePageContext';
 
 // extensions
 import { createPinia, setActivePinia } from 'pinia';
-import { useEnumStore } from '../store/enums';
-import { useFormStore } from '../store/forms';
-import { useAuthStore } from '../store/auth';
 import { defaultConfig as formKitConfig, plugin as formKit } from '@formkit/vue';
 import { generateClasses } from '@formkit/themes';
 import VueFeather from 'vue-feather';
@@ -52,7 +49,7 @@ function createApp(pageContext: PageContext) {
     app.component('vue-feather', VueFeather);
     app.component('help', Help);
     app.component('country-select', CountrySelect);
-    app.component('currency-select', CurrencySelect)
+    app.component('currency-select', CurrencySelect);
 
     objectAssign(app, {
         changePage: (pageContext: PageContext) => {
