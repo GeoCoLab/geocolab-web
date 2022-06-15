@@ -6,7 +6,9 @@ export const iKnowThePerformanceRisksOfAsyncRouteFunctions = true
 
 export default async (pageContext: PageContextWrapper) => {
     const {url} = pageContext;
-    if (!partRegex`/blog/edit/${ /[a-z0-9-]+/ }`.test(url)) {
+    const editPost = partRegex`/blog/edit/${ /[a-z0-9-]+/ }`.test(url);
+    const newPost = url === '/blog/new';
+    if ((!editPost) && (!newPost)) {
         return false;
     }
 
@@ -17,7 +19,7 @@ export default async (pageContext: PageContextWrapper) => {
         return false;
     }
 
-    const postSlug = url.split('/')[3];
+    const postSlug = newPost ? 'new' : url.split('/')[3];
 
     return {
         routeParams: {

@@ -16,7 +16,12 @@ async function onBeforeRender(pageContext: PageContextBuiltIn) {
     };
 }
 
-async function fetchBlogPost(slug: string) {
+async function fetchBlogPost(slug: string | null) {
+    if (slug === 'new') {
+        return {
+            posted: moment().format('YYYY-MM-DDTHH:mm')
+        }
+    }
     let response = await api.get(`/blog/${slug}`);
     let post = response.data;
     let postedDate = moment(post.posted);

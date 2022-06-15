@@ -26,16 +26,21 @@ api.interceptors.response.use(
     },
     async function (error) {
         let originalRequest = error.config;
-        if (error.response.data.errors && error.response.data.errors.includes('access token has expired')) {
+        let hasErrorList = (!!error.response) && (!!error.response.data) && error.response.data.errors
+        if (hasErrorList && error.response.data.errors.includes('access token has expired')) {
             try {
                 let cookieString = originalRequest.headers['Cookie']
                 let cookies = cookie.parse(cookieString)
-                let response = await api.post('/refresh', {}, {headers: {'Cookie': cookieString, 'X-CSRF-TOKEN': cookies['csrf_refresh_token']}});
+                let conf = {headers: {'Cookie': cookieString, 'X-CSRF-TOKEN': cookies['csrf_refresh_token']}}
+                let response = await api.get('/refresh', conf);
                 originalRequest.headers['Cookie'] = response.headers['set-cookie']
                 return api(originalRequest);
             } catch (e) {
                 // they're just gonna have to log in again
             }
+        }
+        else {
+            console.log(error)
         }
         return Promise.reject(error);
     }
