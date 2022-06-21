@@ -4,10 +4,11 @@
   --c1: #9e7578;
   --c1-dark: #51393b;
   --c1-darkest: #100b0c;
-  --c2-light: #c5cfba;
-  --c2: #8c9e75;
-  --c2-dark: #465139;
-  --c2-darkest: #2a3022;
+  --c2-lightest: #ddf1cb;
+  --c2-light: #99d564;
+  --c2: #588F27;
+  --c2-dark: #2c4814;
+  --c2-darkest: #121d08;
   --grey-1: #f1f1f2;
   --grey-2: #e7e8e9;
   --grey-3: #d1d3d4;
@@ -25,9 +26,11 @@ body {
 
 a {
   color: $secondary-dark;
+  text-decoration: underline;
+  text-decoration-color: $secondary-lightest;
 
   &:hover {
-    border-bottom: 2px solid $primary;
+    color: $secondary-darkest;
   }
 }
 
@@ -97,6 +100,10 @@ h3 {
   grid-template-columns: auto auto 1fr auto;
   grid-gap: 1em;
 
+  a {
+    text-decoration: none;
+  }
+
   & #nav-auth {
     grid-area: auth;
   }
@@ -105,20 +112,16 @@ h3 {
     grid-area: logo;
   }
 
-  & a {
-    border-bottom: 0;
-  }
-
   .nav-item {
     color: $primary-darkest;
-    border-bottom: 2px solid $grey-1;
 
     &:hover {
+      margin-bottom: -2px;
       border-bottom: 2px solid $secondary-dark;
-      transition: all .1s;
     }
 
     &--active {
+      margin-top: -2px;
       color: $primary-darkest;
       border-bottom: 2px solid $primary;
     }
@@ -154,4 +157,8 @@ h3 {
 
 .linewrap .cm-line {
   white-space: pre-wrap;
+}
+
+.border-bottom {
+  border-bottom-width: 2px;
 }

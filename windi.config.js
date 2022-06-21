@@ -13,6 +13,7 @@ export default defineConfig({
                     darkest: 'var(--c1-darkest)'
                 },
                 secondary: {
+                    lightest: 'var(--c2-lightest)',
                     light: 'var(--c2-light)',
                     DEFAULT: 'var(--c2)',
                     dark: 'var(--c2-dark)',
