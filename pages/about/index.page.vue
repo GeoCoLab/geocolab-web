@@ -11,7 +11,6 @@
       <li>Dr Elliot Carter, Trinity College Dublin,</li>
       <li>Edd Lewis, British Geological Survey</li>
       <li>Dr Sian Davies-Vollum, University of Derby</li>
-      <li>Dr Annie Ocklefield, University of Brighton</li>
       <li>Dr Brian Thomas, Newcastle University</li>
     </ul>
   </div>
