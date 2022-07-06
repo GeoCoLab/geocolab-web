@@ -7,29 +7,3 @@
 import '../../assets/apple-touch-icon.png';
 import homepageContent from '../../assets/homepage-content.png';
 </script>
-
-<style lang="scss">
-@import 'scss/vars';
-
-// display the subtitle and make the title bigger
-#header {
-  height: 200px;
-
-  & .site-subtitle {
-    display: block;
-    font-size: 1.25rem;
-  }
-}
-
-@media (min-width: $break-sm) {
-  #header {
-    & .site-title {
-      font-size: 4.5rem;
-    }
-
-    & .site-subtitle {
-      font-size: 1.5rem;
-    }
-  }
-}
-</style>

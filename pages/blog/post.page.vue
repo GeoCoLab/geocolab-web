@@ -70,7 +70,7 @@ const pageContext = usePageContext();
 <style lang="scss">
 .blog-post {
   img {
-    max-width: 80%;
+    max-width: 60%;
     margin: 2em auto;
   }
 }

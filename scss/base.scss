@@ -4,11 +4,11 @@
   --c1: #9e7578;
   --c1-dark: #51393b;
   --c1-darkest: #100b0c;
-  --c2-lightest: #ddf1cb;
-  --c2-light: #99d564;
-  --c2: #588F27;
-  --c2-dark: #2c4814;
-  --c2-darkest: #121d08;
+  --c2-lightest: #EAECEC;
+  --c2-light: #7A8390;
+  --c2: #546870;
+  --c2-dark: #44424C;
+  --c2-darkest: #2D2B30;
   --grey-1: #f1f1f2;
   --grey-2: #e7e8e9;
   --grey-3: #d1d3d4;
@@ -29,6 +29,7 @@ a {
   text-decoration: underline;
   text-decoration-color: $secondary-lightest;
 
+
   &:hover {
     color: $secondary-darkest;
   }
@@ -38,6 +39,11 @@ h1, h2, h3 {
   font-family: $title-font;
   font-weight: 700;
   letter-spacing: 0.03em;
+
+  & a {
+    text-decoration: none;
+    text-shadow: 2px 2px 0 $secondary-lightest;
+  }
 }
 
 h1 {
@@ -46,6 +52,7 @@ h1 {
 
 h2 {
   font-size: 2.5em;
+  color: $secondary-darkest;
 
   &.page-title {
     margin-bottom: 0.5em;
@@ -58,7 +65,7 @@ h3 {
 
 // SPECIFIC ELEMENTS =================================================
 #header {
-  background-image: url('../assets/max-van-den-oetelaar-cAq3crYmgno-unsplash.jpg');
+  background-image: url('../assets/leon-macapagal-cqnXyamtGE4-unsplash.jpg');
   background-size: cover;
   background-repeat: no-repeat;
   background-position-y: center;
@@ -67,13 +74,23 @@ h3 {
   border-top: 2px solid $primary-dark;
   border-bottom: 2px solid $primary-dark;
 
+
+  &.header-home {
+    height: 200px;
+
+    & .site-subtitle {
+      display: block;
+      font-size: 1.25rem;
+    }
+  }
+
   &::before {
     position: absolute;
     top: 0;
     bottom: 0;
     left: 0;
     right: 0;
-    background: linear-gradient(to top, $primary-darkest, transparent);
+    background: linear-gradient(to top, change-color(#100b0c, $alpha:0.5), transparent);
     content: '';
   }
 
@@ -85,17 +102,32 @@ h3 {
   & .site-title {
     font-size: 3rem;
     line-height: 1;
+    text-shadow: 2px 2px 0 $primary-dark;
   }
 
   & .site-subtitle {
     // by default, don't display the subtitle
     display: none;
     line-height: 1;
+    text-shadow: 1px 1px 0 $primary-darkest;
+  }
+}
+
+@media (min-width: $break-sm) {
+  #header.header-home {
+    & .site-title {
+      font-size: 4.5rem;
+    }
+
+    & .site-subtitle {
+      font-size: 1.5rem;
+    }
   }
 }
 
 
 #page-nav {
+  background-color: $grey-1;
   grid-template-areas: 'logo menu nav auth';
   grid-template-columns: auto auto 1fr auto;
   grid-gap: 1em;
@@ -136,7 +168,7 @@ h3 {
 @each $break in $breakpoints {
   @media (min-width: $break) {
     .main-content {
-      width: $break;
+      width: $break * 0.9;
     }
   }
 }

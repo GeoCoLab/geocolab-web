@@ -27,7 +27,7 @@ export default defineConfig({
             }
         },
         fontFamily: {
-            display: ['"Rubik"', 'sans-serif'],
+            display: ['"Work Sans"', 'sans-serif'],
             body: ['"Karla"', 'sans-serif'],
         },
     }
