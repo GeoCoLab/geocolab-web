@@ -7,7 +7,6 @@ import 'virtual:windi.css';
 import '../scss/base.scss';
 import '../scss/form.scss';
 import { useEnumStore } from '../store/enums';
-import { useFormStore } from '../store/forms';
 
 let app: ReturnType<typeof createApp>;
 const {hydrationPromise} = useClientRouter({
@@ -16,10 +15,6 @@ const {hydrationPromise} = useClientRouter({
             // init enums
             const enumStore = useEnumStore();
             enumStore.init();
-
-            // init forms
-            const formStore = useFormStore();
-            formStore.init();
 
             app = createApp(pageContext);
             app.mount('#app');

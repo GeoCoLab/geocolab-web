@@ -13,8 +13,6 @@
              :options="[{label:'Given name first', value: 1},{label:'Family name first', value: 0}]"
              label="Name display"
              :help="`Display your ${formData.given_name_first ? 'given name' : 'family name'} first, e.g. ${displayName}`" />
-
-    <CountrySelect name="country" label="Country" v-model="formData.country" help="Your current country of residence"/>
     <FormKit type="text" name="pronouns" label="Pronouns" help="e.g. he/him, she/her, they/them"/>
     <div class="form-row-custom">
       <div class="form-row-inputs">

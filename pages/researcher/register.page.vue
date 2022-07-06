@@ -14,59 +14,22 @@
       You do not need to complete this step.
     </template>
   </p>
-  <FormKit type="form" v-model="formDataEdi" form-class="mx-auto long-form" submit-label="Save & Continue"
-           @submit="submitEdi"
-           :errors="errorsEdi" v-if="ediTodo">
-    <FormKitSchema :schema="forms.forms.edi"></FormKitSchema>
-  </FormKit>
+  <EDI v-if="ediTodo" />
   <template v-if="ediExtraTodo && !ediTodo">
     <p>The following questions will help us understand our users and to evaluate and monitor use of GeoCoLab. Data used
        for this purpose will be anonymised and aggregated data may be shared with third parties (e.g. NERC as project
        funders) and in publications.</p>
-    <FormKit type="form" v-model="formDataExtra" form-class="mx-auto long-form" submit-label="Submit"
-             @submit="submitExtra"
-             :errors="errorsExtra">
-      <FormKitSchema :schema="forms.forms.edi_extra"></FormKitSchema>
-    </FormKit>
+    <EDIExtra />
   </template>
 </template>
 
 <script setup>
-import { computed, ref } from 'vue';
-import { navigate } from 'vite-plugin-ssr/client/router';
-import { useFormStore } from '../../store/forms';
+import { computed } from 'vue';
 import { usePageContext } from '../../utils/usePageContext';
+import EDI from '../../components/forms/EDI.vue';
+import EDIExtra from '../../components/forms/EDIExtra.vue';
 
 const pageContext = usePageContext();
-const forms = useFormStore();
-let errorsEdi = ref([]);
-const formDataEdi = ref({});
-let errorsExtra = ref([]);
-const formDataExtra = ref({});
-
-const submitEdi = async () => {
-  forms.submitForm('edi', formDataEdi.value)
-       .then(r => {
-         if (r.status >= 400) {
-           errorsEdi.value = r.data.errors;
-         } else {
-           // if the user is changed, we need to reload
-           window.location.reload()
-         }
-       });
-};
-
-const submitExtra = async () => {
-  forms.submitForm('edi_extra', formDataExtra.value)
-       .then(r => {
-         if (r.status >= 400) {
-           errorsExtra.value = r.data.errors;
-         } else {
-           // user is changed, so navigate like this to force a reload
-           window.location.pathname = '/';
-         }
-       });
-};
 
 const ediTodo = computed(() => {
   return pageContext.user.todo.includes('edi');
