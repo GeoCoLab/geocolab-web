@@ -10,7 +10,7 @@
       </div>
     </div>
     <div class="h-full mx-auto p-20 main-content col-start-2">
-      <div class="w-full lg:w-11/12 xl:w-80 mx-auto">
+      <div class="w-full lg:w-90 xl:w-80 mx-auto">
         <slot/>
       </div>
     </div>
