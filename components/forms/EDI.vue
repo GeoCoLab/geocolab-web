@@ -9,6 +9,7 @@
 import { ref } from 'vue';
 import { usePageContext } from '../../utils/usePageContext';
 import { useFormStore } from '../../store/forms';
+import {api} from '../../utils/api';
 
 const forms = useFormStore();
 const pageContext = usePageContext();
@@ -17,6 +18,18 @@ const formData = ref({});
 const errors = ref([]);
 
 async function submitHandler() {
+  let isLowerIncome = await api.get(`http://api.worldbank.org/v2/country/${formData.value.country_expand}?format=json`)
+                               .then(r => {
+                                 try {
+                                   let countryData = r.data[1][0]
+                                   return countryData.incomeLevel.id === 'LIC' || countryData.incomeLevel.id === 'LMC';
+                                 } catch (e) {
+                                   return false;
+                                 }
+                               })
+
+  formData.value.country = isLowerIncome;
+
   forms.submitForm('edi', formData.value)
        .then(r => {
          if (r.status >= 400) {
@@ -30,25 +43,10 @@ async function submitHandler() {
 
 const schema = [
   {
-    '$formkit': 'select',
-    'id': 'country',
-    'label': 'Do you currently work in a low- or lower-middle income country as determined by the World Bank designation of Gross National Income per capita?',
-    'name': 'country',
-    'options': [
-      { 'label': 'Yes', 'value': 'yes' },
-      { 'label': 'No', 'value': 'no' }
-    ],
-    'placeholder': '--',
-    'validation': 'required',
-    'validation-label': 'This information'
-  },
-  {
     '$cmp': 'country-select',
-    'if': '$get(country).value',
     'props': {
-      'classes': { 'wrapper': 'dependent' },
       'id': 'country_expand',
-      'label': 'Please specify:',
+      'label': 'Where do you currently work?',
       'name': 'country_expand',
       'placeholder': '--',
       'validation': 'required'
