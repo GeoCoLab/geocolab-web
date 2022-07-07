@@ -27,14 +27,14 @@ watch(pageContext, () => {
 const directionsClasses = computed(() => {
   switch (props.direction) {
     case 'up':
-      return ['bottom-full', 'left-0']
+      return ['bottom-full', 'left-0', 'mb-3']
     case 'left':
-      return ['top-0', 'right-full']
+      return ['top-0', 'right-full', 'mr-2', '-mt-2']
     case 'right':
-      return ['top-0', 'left-full']
+      return ['top-0', 'left-full', 'ml-2', '-mt-2']
     default:
       // down is default
-      return ['top-full', 'left-0']
+      return ['top-full', 'left-0', 'mt-2']
   }
 })
 
