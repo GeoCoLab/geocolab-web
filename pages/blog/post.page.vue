@@ -15,7 +15,7 @@
       </div>
     </div>
 
-    <div v-html="body" class="blog-post py-8">
+    <div v-html="body" class="blog-post py-8 prose lg:prose-lg">
     </div>
 
     <div class="py-8 grid grid-cols-[1fr,25%]">

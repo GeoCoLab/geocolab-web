@@ -9,8 +9,10 @@
             class="site-subtitle text-primary-light">Matching access to analytical facilities with underserved researchers</span>
       </div>
     </div>
-    <div class="h-full mx-auto p-10 main-content col-start-2">
-      <slot/>
+    <div class="h-full mx-auto p-20 main-content col-start-2">
+      <div class="w-full lg:w-11/12 xl:w-80 mx-auto">
+        <slot/>
+      </div>
     </div>
   </div>
 </template>
