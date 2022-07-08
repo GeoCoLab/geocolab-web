@@ -2,7 +2,7 @@
 
 // FORMKIT OVERRIDES =================================================
 
-.formkit-form {
+.formkit-form, .formkit-form section {
   margin: 2em auto;
 
   & > * {
@@ -153,6 +153,7 @@
   }
 
   &.micro-form {
+
     & .formkit-inner {
       height: 4em;
     }

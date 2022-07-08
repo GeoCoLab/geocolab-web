@@ -1,5 +1,4 @@
 import axios from 'axios';
-import cookie from 'cookie';
 
 let API_HOST;
 try {

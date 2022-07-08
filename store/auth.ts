@@ -51,7 +51,8 @@ export const useAuthStore = defineStore('auth', {
             });
         },
         async register(registerForm: Ref) {
-            return api.post('/register', registerForm.value).then(r => {
+            console.log(registerForm);
+            return api.post('/register', registerForm).then(r => {
                 this.userData = r.data;
                 return r;
             }).catch(e => {

@@ -24,7 +24,8 @@ body {
   font-size: $body-font-size;
 }
 
-a {
+a, .clickable {
+  cursor: pointer;
   color: $secondary-dark;
   text-decoration: underline;
   text-decoration-color: $secondary-lightest;
@@ -37,7 +38,7 @@ a {
 
 h1, h2, h3 {
   font-family: $title-font;
-  font-weight: 700;
+  font-weight: 800;
   letter-spacing: 0.03em;
 
   & a {
@@ -182,9 +183,6 @@ h3 {
   color: $primary-dark;
 }
 
-.dropdown {
-
-}
 
 .linewrap .cm-line {
   white-space: pre-wrap;

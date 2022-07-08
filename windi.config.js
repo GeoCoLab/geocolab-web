@@ -42,7 +42,7 @@ export default defineConfig({
             }
         },
         fontFamily: {
-            display: ['"Work Sans"', 'sans-serif'],
+            display: ['"Noto Sans"', 'sans-serif'],
             body: ['"Karla"', 'sans-serif'],
         },
     },
