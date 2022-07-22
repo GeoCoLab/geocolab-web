@@ -111,6 +111,10 @@ const hiddenRoutes = [
         label: 'Organisations/Institutions',
         dropdown: [
           {
+            path: '/orgs',
+            label: 'Manage'
+          },
+          {
             path: '/orgs/new',
             label: 'New'
           }
