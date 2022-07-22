@@ -71,8 +71,6 @@ h3 {
   background-position-y: center;
   height: 100px;
   position: relative;
-  border-top: 2px solid $primary-dark;
-  border-bottom: 2px solid $primary-dark;
 
 
   &.header-home {
@@ -92,11 +90,6 @@ h3 {
     right: 0;
     background: linear-gradient(to top, change-color(#100b0c, $alpha:0.5), transparent);
     content: '';
-  }
-
-  & > * {
-    // this keeps the text on top of the gradient
-    position: relative;
   }
 
   & .site-title {
@@ -127,7 +120,9 @@ h3 {
 
 
 #page-nav {
-  background-color: $grey-1;
+  background: $secondary-dark;
+  border-top: 2px solid $secondary-darkest;
+  border-bottom: 2px solid $secondary-darkest;
   grid-template-areas: 'logo menu nav auth';
   grid-template-columns: auto auto 1fr auto;
   grid-gap: 1em;
@@ -145,18 +140,22 @@ h3 {
   }
 
   .nav-item {
-    color: $primary-darkest;
+    color: $primary-light;
 
     &:hover {
       margin-bottom: -2px;
-      border-bottom: 2px solid $secondary-dark;
+      border-bottom: 2px solid $secondary;
     }
 
     &--active {
-      margin-top: -2px;
-      color: $primary-darkest;
-      border-bottom: 2px solid $primary;
+      margin-top: 2px;
+      color: $primary-lightest;
+      border-bottom: 2px solid $secondary-light;
     }
+  }
+
+  .vue-feather {
+    color: $primary-light;
   }
 }
 
@@ -190,4 +189,15 @@ h3 {
 
 .border-bottom {
   border-bottom-width: 2px;
+}
+
+.footer {
+  a {
+    color: $primary-light;
+    text-decoration: none;
+  }
+
+  .vue-feather {
+    color: $primary-light;
+  }
 }

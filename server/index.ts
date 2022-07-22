@@ -34,7 +34,9 @@ async function startServer() {
             withCredentials: true,
             timeout: 2000,
             baseURL: process.env.API_HOST + '/api'
-        }).then(r => r.data).catch(e => {
+        }).then(r => {
+            return r.data
+        }).catch(e => {
             console.error(e);
             return emptyUser;
         });

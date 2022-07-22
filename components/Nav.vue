@@ -1,18 +1,18 @@
 <template>
-  <nav class="p-4 w-full col-span-3 grid items-center relative" id="page-nav">
+  <nav class="px-4 py-2 w-full col-span-3 grid items-center relative" id="page-nav">
     <!-- logo -->
     <a href="/" id="nav-icon">
-      <img :src="logo" class="w-10" alt="GeoCoLab">
+      <img :src="logo" class="w-30px" alt="GeoCoLab">
     </a>
     <!-- menu button -->
     <vue-feather type="menu" v-if="!isLarge" @click="expandMenu = !expandMenu"
                  :aria-expanded="expandMenu" aria-controls="main-menu" />
     <!-- link block 1 -->
     <div id="nav-links">
-      <Dropdown v-if="!isLarge" :show="expandMenu" id="main-menu" @toggle-dropdown="toggleMenu">
+      <Dropdown v-if="!isLarge" :show="expandMenu" id="main-menu" @toggle-dropdown="toggleMenu" class="mt-0.5">
         <NavBlock :links="links" direction="col" />
       </Dropdown>
-      <NavBlock v-else :links="links" direction="row"/>
+      <NavBlock v-else :links="links" direction="row" />
     </div>
     <!-- end link block 1-->
     <!-- link block 2 -->
@@ -21,7 +21,8 @@
         <template v-if="pageContext.user.id">
           <NavItem path="/user/account">
             <span class="<md:hidden">Hi, {{ pageContext.user.given_name }}</span>
-            <img :src="pageContext.user.gravatar + '&s=30'" class="inline md:ml-4 rounded-full border-2 border-secondary-light">
+            <img :src="pageContext.user.gravatar + '&s=30'"
+                 class="inline md:ml-4 rounded-full border-2 border-secondary-darkest bg-gray-100">
           </NavItem>
           <NavItem path="/#" label="Logout" @click="auth.logout">
           </NavItem>
@@ -44,7 +45,7 @@ import { breakpointsTailwind, useBreakpoints } from '@vueuse/core';
 import { computed, ref } from 'vue';
 import Dropdown from './nav/Dropdown.vue';
 import { useAuthStore } from '../store/auth';
-import {usePageContext} from '../utils/usePageContext';
+import { usePageContext } from '../utils/usePageContext';
 
 const auth = useAuthStore();
 const pageContext = usePageContext();
@@ -61,17 +62,7 @@ const defaultRoutes = [
   },
   {
     path: '/about',
-    label: 'About',
-    dropdown: [
-      {
-        path: '/about/coc',
-        label: 'Code of Conduct'
-      },
-      {
-        path: '/about/terms',
-        label: 'Terms & Conditions'
-      }
-    ]
+    label: 'About'
   },
   {
     path: '/blog',

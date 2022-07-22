@@ -1,5 +1,5 @@
 <template>
-  <div v-if="props.show" class="absolute z-60 bg-gray-100 p-2 shadow shadow-gray-900 dropdown"
+  <div v-if="props.show" class="absolute z-60 bg-secondary-dark p-2 shadow shadow-gray-900 dropdown"
       :class="directionsClasses">
     <slot></slot>
   </div>
@@ -29,12 +29,12 @@ const directionsClasses = computed(() => {
     case 'up':
       return ['bottom-full', 'left-0', 'mb-3']
     case 'left':
-      return ['top-0', 'right-full', 'mr-2', '-mt-2']
+      return ['top-0', 'right-full', 'mr-3', '-mt-2']
     case 'right':
-      return ['top-0', 'left-full', 'ml-2', '-mt-2']
+      return ['top-0', 'left-full', 'ml-3', '-mt-2']
     default:
       // down is default
-      return ['top-full', 'left-0', 'mt-2']
+      return ['top-full', 'left-0', 'mt-4']
   }
 })
 
