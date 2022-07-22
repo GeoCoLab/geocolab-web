@@ -212,13 +212,16 @@
   }
 }
 
-.formkit-button, .button {
+.formkit-button, .button, .formkit-input[type='button'] {
   padding: 0.5em 1em;
   border-radius: 0.375rem;
   background-color: $primary-dark;
   color: $primary-lightest;
   display: flex;
   width: max-content;
+  height: 2.5em;
+  line-height: 1em;
+  align-items: center;
 
   & .vue-feather {
     color: $primary-lightest;
@@ -227,6 +230,11 @@
   &.formkit-button {
     justify-self: end;
     grid-column: content;
+  }
+
+  &:disabled {
+    opacity: 0.7;
+    cursor: default;
   }
 }
 
