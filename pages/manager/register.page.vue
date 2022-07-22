@@ -20,13 +20,6 @@ let errors = ref([]);
 const formData = ref({});
 
 const submitInvite = async () => {
-  forms.submitForm('edi', formData.value)
-       .then(r => {
-         if (r.status >= 400) {
-           errors.value = r.data.errors;
-         } else {
-           auth.loadUser();
-         }
-       });
+
 };
 </script>
