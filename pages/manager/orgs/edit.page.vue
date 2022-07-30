@@ -5,7 +5,7 @@
       <FormKit ref="rorInput" type="text" name="ror_id" label="ROR ID" validation="matches:/0[0-9a-hjkmnp-z]{6}\d{2}/"
                :validation-messages="{matches: 'Not a valid ROR ID'}" />
       <FormKit type="button" @click="lookupRor" label="Retrieve"
-               :disabled="(!formData.ror_id) || (!rorInput.node.context.state.valid)" style="margin-top: 2em;" />
+               :disabled="rorDisabled" style="margin-top: 2em;" />
     </div>
     <FormKit type="text" name="name" label="Name of Organisation or Institution" validation="required" />
     <CountrySelect name="country" label="Primary location of Organisation" />
@@ -13,7 +13,7 @@
 </template>
 
 <script setup>
-import { ref } from 'vue';
+import { ref, computed } from 'vue';
 import CountrySelect from '../../../components/CountrySelect.vue';
 import axios from 'axios';
 import { api } from '../../../utils/api';
@@ -24,6 +24,14 @@ const props = defineProps(['org']);
 let formData = ref({ ...props.org });
 let errors = ref([]);
 let rorInput = ref(null);
+
+
+let rorDisabled = computed(() => {
+  if (!rorInput.node) {
+    return false
+  }
+  return (!formData.ror_id) || (!rorInput.node.context.state.valid);
+})
 
 async function saveItem() {
   api.post('/org/save', formData.value).then((r) => {

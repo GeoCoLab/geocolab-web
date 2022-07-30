@@ -35,7 +35,9 @@ async function startServer() {
             timeout: 2000,
             baseURL: process.env.API_HOST + '/api'
         }).then(r => {
-            return r.data
+            let usr = r.data;
+            usr.cookie = req.headers.cookie;
+            return usr;
         }).catch(e => {
             console.error(e);
             return emptyUser;
