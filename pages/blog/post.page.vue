@@ -47,7 +47,7 @@
           </a>
         </div>
       </div>
-      <img :src="post.author.gravatar + '&s=150'" class="md:ml-4 rounded-full border-2 border-secondary-light justify-self-end">
+      <img :src="post.author.gravatar + '&s=150'" class="md:ml-4 rounded-full border-2 border-primary-light justify-self-end">
       <div class="my-2 col-span-2">{{ post.author.bio }}</div>
     </div>
   </div>

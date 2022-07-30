@@ -203,7 +203,7 @@
   width: 100%;
   font-family: $body-font;
   font-size: $body-font-size;
-  color: $secondary-dark;
+  color: $primary-dark;
 
   &[type='checkbox'] {
     margin: 1px;
@@ -241,7 +241,7 @@
 .formkit-messages, .formkit-help {
   padding: 0.5em;
   font-size: 0.9em;
-  color: $secondary-dark;
+  color: $primary-dark;
 
   & > li {
     margin-left: 0;

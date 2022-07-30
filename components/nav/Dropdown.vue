@@ -1,5 +1,5 @@
 <template>
-  <div v-if="props.show" class="absolute z-60 bg-secondary-dark p-2 shadow shadow-gray-900 dropdown"
+  <div v-if="props.show" class="absolute z-60 bg-primary-dark p-2 shadow shadow-gray-900 dropdown"
       :class="directionsClasses">
     <slot></slot>
   </div>

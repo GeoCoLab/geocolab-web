@@ -10,7 +10,7 @@
           <small><a :href="`/blog?author=${p.author.id}`">{{ p.author.name }}</a></small>
           <small>{{ p.posted }}</small>
         </div>
-        <img :src="p.author.gravatar + '&s=30'" class="md:ml-4 rounded-full border-2 border-secondary-light justify-self-end">
+        <img :src="p.author.gravatar + '&s=30'" class="md:ml-4 rounded-full border-2 border-primary-light justify-self-end">
       </div>
     </div>
 

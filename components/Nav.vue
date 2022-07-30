@@ -1,5 +1,5 @@
 <template>
-  <nav class="px-4 py-2 w-full col-span-3 grid items-center relative" id="page-nav">
+  <nav class="px-4 py-2 w-full col-span-3 grid items-center relative bg-primary-dark" id="page-nav">
     <!-- logo -->
     <a href="/" id="nav-icon">
       <img :src="logo" class="w-30px" alt="GeoCoLab">
@@ -22,7 +22,7 @@
           <NavItem path="/user/account">
             <span class="<md:hidden">Hi, {{ pageContext.user.given_name }}</span>
             <img :src="pageContext.user.gravatar + '&s=30'"
-                 class="inline md:ml-4 rounded-full border-2 border-secondary-darkest bg-gray-100">
+                 class="inline md:ml-4 rounded-full border-2 border-primary bg-gray-100">
           </NavItem>
           <NavItem path="/#" label="Logout" @click="auth.logout">
           </NavItem>
@@ -56,10 +56,6 @@ const isLarge = ref(breakpoints.greater('lg'));
 const expandMenu = ref(false);
 
 const defaultRoutes = [
-  {
-    path: '/',
-    label: 'Home'
-  },
   {
     path: '/about',
     label: 'About'

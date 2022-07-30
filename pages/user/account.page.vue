@@ -1,6 +1,6 @@
 <template>
   <div class="flex items-center">
-    <img :src="pageContext.user.gravatar + '&s=100'" class="mr-8 rounded-full border-2 border-secondary-light">
+    <img :src="pageContext.user.gravatar + '&s=100'" class="mr-8 rounded-full border-2 border-primary-light">
     <div class="grid grid-flow-row w-full max-w-2xl gap-2">
       <h2>Hello, {{ pageContext.user.name }}!</h2>
       <div class="h-1 rounded-full w-full bg-gray-100">
@@ -11,7 +11,7 @@
         <li v-for="task in tasks" class="m-0">
           <div class="mr-4 text-sm grid grid-flow-col items-center gap-1">
             <vue-feather type="check" size="1.2em" v-if="task.done"/>
-            <span class="cursor-pointer" :class="{'text-gray-500': task.done, 'text-secondary-darkest': !task.done}" @click="task.action">{{ task.label }}</span>
+            <span class="cursor-pointer" :class="{'text-gray-500': task.done, 'text-primary-darkest': !task.done}" @click="task.action">{{ task.label }}</span>
           </div>
         </li>
       </ul>

@@ -31,13 +31,13 @@
                :validation-messages="{accepted: 'You must agree to the MoU to continue.'}" />
     </section>
     <section v-show="step === 2">
-      <div class="my-8 pb-8 border-bottom border-secondary-lightest">
+      <div class="my-8 pb-8 border-bottom border-primary-lightest">
         <h3>Researcher</h3>
         <p>A researcher account allows you to submit applications to organisations and institutions.</p>
         <FormKit type="button" :classes="{input: 'button my-4'}" @click="register('researcher')">Register as researcher
         </FormKit>
       </div>
-      <div class="my-8 pb-8 border-bottom border-secondary-lightest">
+      <div class="my-8 pb-8 border-bottom border-primary-lightest">
         <h3>Manager</h3>
         <p>Manager accounts are for organisations and institutions offering their services through GeoCoLab.</p>
         <FormKit type="button" :classes="{input: 'button my-4'}" @click="register('manager')">Register as manager

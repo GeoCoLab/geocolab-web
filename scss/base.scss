@@ -1,38 +1,33 @@
 :root {
-  --c1-lightest: #fcfaf8;
-  --c1-light: #e2d1cf;
-  --c1: #9e7578;
-  --c1-dark: #51393b;
-  --c1-darkest: #100b0c;
-  --c2-lightest: #EAECEC;
-  --c2-light: #7A8390;
-  --c2: #546870;
-  --c2-dark: #44424C;
-  --c2-darkest: #2D2B30;
-  --grey-1: #f1f1f2;
-  --grey-2: #e7e8e9;
-  --grey-3: #d1d3d4;
+  --contrast: #9e7578;
+  --c1-white: #f2f2f2;
+  --c1-lightest: #e6eaf2;
+  --c1-light: #7A8390;
+  --c1: #546870;
+  --c1-dark: #3a3840;
+  --c1-darkest: #28272b;
+  --c1-black: #14141a;
 }
 
 @import './vars';
 
 // GENERAL ===========================================================
 body {
-  background-color: $grey-1;
-  color: $secondary-dark;
+  background-color: $primary-white;
+  color: $primary-darkest;
   font-family: $body-font;
   font-size: $body-font-size;
 }
 
 a, .clickable {
   cursor: pointer;
-  color: $secondary-dark;
+  color: $primary-dark;
   text-decoration: underline;
-  text-decoration-color: $secondary-lightest;
+  text-decoration-color: $primary-lightest;
   transition: color 0.2s;
 
   &:hover {
-    color: $secondary-light;
+    color: $primary-light;
   }
 }
 
@@ -52,7 +47,6 @@ h1 {
 
 h2 {
   font-size: 2.5em;
-  color: $secondary-darkest;
 
   &.page-title {
     margin-bottom: 0.5em;
@@ -70,15 +64,12 @@ h3 {
   background-repeat: no-repeat;
   background-position-y: center;
   height: 100px;
-  position: relative;
-
 
   &.header-home {
     height: 200px;
 
     & .site-subtitle {
       display: block;
-      font-size: 1.25rem;
     }
   }
 
@@ -93,36 +84,18 @@ h3 {
   }
 
   & .site-title {
-    font-size: 3rem;
-    line-height: 1;
     text-shadow: 2px 2px 0 $primary-dark;
   }
 
   & .site-subtitle {
     // by default, don't display the subtitle
     display: none;
-    line-height: 1;
     text-shadow: 1px 1px 0 $primary-darkest;
-  }
-}
-
-@media (min-width: $break-sm) {
-  #header.header-home {
-    & .site-title {
-      font-size: 4.5rem;
-    }
-
-    & .site-subtitle {
-      font-size: 1.5rem;
-    }
   }
 }
 
 
 #page-nav {
-  background: $secondary-dark;
-  border-top: 2px solid $secondary-darkest;
-  border-bottom: 2px solid $secondary-darkest;
   grid-template-areas: 'logo menu nav auth';
   grid-template-columns: auto auto 1fr auto;
   grid-gap: 1em;
@@ -140,17 +113,17 @@ h3 {
   }
 
   .nav-item {
-    color: $primary-light;
+    color: $primary-lightest;
 
     &:hover {
       margin-bottom: -2px;
-      border-bottom: 2px solid $secondary;
+      border-bottom: 2px solid $primary-light;
     }
 
     &--active {
       margin-top: 2px;
       color: $primary-lightest;
-      border-bottom: 2px solid $secondary-light;
+      border-bottom: 2px solid $secondary;
     }
   }
 
@@ -179,7 +152,7 @@ h3 {
 }
 
 .vue-feather {
-  color: $primary-dark;
+  color: $primary-darkest;
 }
 
 
@@ -193,11 +166,11 @@ h3 {
 
 .footer {
   a {
-    color: $primary-light;
+    color: $primary-lightest;
     text-decoration: none;
   }
 
   .vue-feather {
-    color: $primary-light;
+    color: $primary-lightest;
   }
 }

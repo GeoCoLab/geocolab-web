@@ -6,24 +6,17 @@ export default defineConfig({
         extend: {
             colors: {
                 primary: {
+                    white: 'var(--c1-white)',
                     lightest: 'var(--c1-lightest)',
                     light: 'var(--c1-light)',
                     DEFAULT: 'var(--c1)',
                     dark: 'var(--c1-dark)',
-                    darkest: 'var(--c1-darkest)'
+                    darkest: 'var(--c1-darkest)',
+                    black: 'var(--c1-black)'
                 },
                 secondary: {
-                    lightest: 'var(--c2-lightest)',
-                    light: 'var(--c2-light)',
-                    DEFAULT: 'var(--c2)',
-                    dark: 'var(--c2-dark)',
-                    darkest: 'var(--c2-darkest)'
+                    DEFAULT: 'var(--contrast)'
                 },
-                gray: {
-                    100: 'var(--grey-1)',
-                    200: 'var(--grey-2)',
-                    300: 'var(--grey-3)'
-                }
             },
             typography: {
                 DEFAULT: {
