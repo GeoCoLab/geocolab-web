@@ -241,6 +241,13 @@
     "@formkit/utils" "1.0.0-beta.8"
     "@formkit/validation" "1.0.0-beta.8"
 
+"@jledentu/vue-finder@^2.0.1":
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/@jledentu/vue-finder/-/vue-finder-2.0.1.tgz#c58a092dd14be0d60595ce4a8f21a8ab7aba90e2"
+  integrity sha512-FyHZXcppq8qXg/V1qIoWi6y4wXGLN1RD7tn4MTSG93Pmc9pS9U4hj+VGFPVFcl/vWeA/9lz9JL9wfEXpPewSJQ==
+  dependencies:
+    lodash-es "^4.17.20"
+
 "@jridgewell/resolve-uri@^3.0.3":
   version "3.0.7"
   resolved "https://registry.yarnpkg.com/@jridgewell/resolve-uri/-/resolve-uri-3.0.7.tgz#30cd49820a962aff48c8fffc5cd760151fca61fe"
@@ -1261,6 +1268,11 @@ kolorist@^1.5.1:
   version "1.5.1"
   resolved "https://registry.yarnpkg.com/kolorist/-/kolorist-1.5.1.tgz#c3d66dc4fabde4f6b7faa6efda84c00491f9e52b"
   integrity sha512-lxpCM3HTvquGxKGzHeknB/sUjuVoUElLlfYnXZT73K8geR9jQbroGlSCFBax9/0mpGoD3kzcMLnOlGQPJJNyqQ==
+
+lodash-es@^4.17.20:
+  version "4.17.21"
+  resolved "https://registry.yarnpkg.com/lodash-es/-/lodash-es-4.17.21.tgz#43e626c46e6591b7750beb2b50117390c609e3ee"
+  integrity sha512-mKnC+QJ9pWVzv+C4/U3rRsHapFfHvQFoFB92e52xeyGMcX6/OlIl78je1u8vePzYZSkkogMPJ2yjxxsb89cxyw==
 
 magic-string@^0.25.7:
   version "0.25.9"
